@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Experience - Internship Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+
+        .gradient-text-blue { background: linear-gradient(90deg, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-text-purple { background: linear-gradient(90deg, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-text-emerald { background: linear-gradient(90deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+        }
+
+        .badge { padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 0.75rem; }
+        .badge-blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .badge-purple { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+        .badge-emerald { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+        .tech-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: #a3a3a3;
+        }
+
+        .details-content {
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .glass-card.expanded .details-content {
+            max-height: 1000px;
+            opacity: 1;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            pointer-events: auto;
+        }
+
+        .expand-icon { transition: transform 0.3s ease; }
+        .expanded .expand-icon { transform: rotate(180deg); }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+        }
+        .modal.active { display: flex; }
+    </style>
+</head>
+<body class="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-5xl mx-auto">
+        <header class="mb-16 text-center">
+            <h1 class="text-4xl sm:text-6xl font-bold tracking-tight mb-4">Internship Experience</h1>
+            <p class="text-neutral-400 text-lg">Professional journey and technical milestones across leading industries.</p>
+            <p class="text-neutral-600 text-sm mt-4 font-mono uppercase tracking-widest">[ Click a role to expand achievements ]</p>
+        </header>
+
+        <div class="space-y-8">
+            
+            <!-- Internship 1: Infosys -->
+            <section class="glass-card p-8 md:p-10" id="card-1" onclick="toggleExpand(this)">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-4 flex-grow">
+                        <span class="badge badge-blue">3 Months Duration</span>
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <h2 class="text-3xl font-bold gradient-text-blue">Infosys</h2>
+                            <div class="flex gap-2">
+                                <span class="tech-pill">SpringBoot</span>
+                                <span class="tech-pill">YOLOv8</span>
+                                <span class="tech-pill">Computer Vision</span>
+                                <svg class="expand-icon w-5 h-5 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl text-neutral-200 font-medium">SpringBoot Internship – AI (YOLOv8)</h3>
+                        <p class="text-neutral-400 leading-relaxed max-w-2xl">Led the development of an automated AI surveillance system to enhance workplace safety through high-accuracy object detection.</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <button onclick="event.stopPropagation(); openCertificate('1in.png')" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 border border-blue-500/30 px-6 py-3 rounded-xl transition-all font-semibold flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            Verify Credentials
+                        </button>
+                    </div>
+                </div>
+
+                <div class="details-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-semibold uppercase text-blue-400 tracking-wider">The Mission</h3>
+                        <p class="text-neutral-400 text-sm leading-relaxed">Integrated state-of-the-art Computer Vision models within a SpringBoot ecosystem to monitor safety compliance autonomously, reducing the need for constant human supervision in industrial zones.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-semibold uppercase text-blue-400 tracking-wider">Key Achievements</h3>
+                        <ul class="space-y-2 text-sm text-neutral-400">
+                            <li>• Achieved a real-time object detection system with <strong>90%+ accuracy</strong>.</li>
+                            <li>• Reduced manual monitoring effort by <strong>70%</strong> via live stream processing.</li>
+                            <li>• Optimized model performance, improving detection speed by <strong>30%</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Internship 2: Intelizign -->
+            <section class="glass-card p-8 md:p-10" id="card-2" onclick="toggleExpand(this)">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-4 flex-grow">
+                        <span class="badge badge-purple">15 Days Intensive</span>
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <h2 class="text-3xl font-bold gradient-text-purple">Intelizign</h2>
+                            <div class="flex gap-2">
+                                <span class="tech-pill">Java</span>
+                                <span class="tech-pill">REST APIs</span>
+                                <span class="tech-pill">Backend</span>
+                                <svg class="expand-icon w-5 h-5 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl text-neutral-200 font-medium">Java & APIs Internship</h3>
+                        <p class="text-neutral-400 leading-relaxed max-w-2xl">Focused on backend architecture and high-throughput data processing systems for enterprise scale.</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <button onclick="event.stopPropagation(); openCertificate('2in.png')" class="bg-purple-600/20 hover:bg-purple-600/40 text-purple-400 border border-purple-500/30 px-6 py-3 rounded-xl transition-all font-semibold flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            Verify Credentials
+                        </button>
+                    </div>
+                </div>
+
+                <div class="details-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-semibold uppercase text-purple-400 tracking-wider">The Mission</h3>
+                        <p class="text-neutral-400 text-sm leading-relaxed">Streamlining the data retrieval layer for complex applications, ensuring that large-scale record handling remains performant and error-resistant under load.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-semibold uppercase text-purple-400 tracking-wider">Key Achievements</h3>
+                        <ul class="space-y-2 text-sm text-neutral-400">
+                            <li>• Built applications handling <strong>1000+ records/day</strong> via REST API integration.</li>
+                            <li>• Reduced overall data retrieval time by <strong>30%</strong> through logic optimization.</li>
+                            <li>• Implemented standardized API response structures for better frontend consumption.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Internship 3: MSME -->
+            <section class="glass-card p-8 md:p-10" id="card-3" onclick="toggleExpand(this)">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-4 flex-grow">
+                        <span class="badge badge-emerald">15 Days Design</span>
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <h2 class="text-3xl font-bold gradient-text-emerald">MSME</h2>
+                            <div class="flex gap-2">
+                                <span class="tech-pill">UI/UX</span>
+                                <span class="tech-pill">Responsive Design</span>
+                                <span class="tech-pill">Figma</span>
+                                <svg class="expand-icon w-5 h-5 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-xl text-neutral-200 font-medium">UI/UX Design Internship</h3>
+                        <p class="text-neutral-400 leading-relaxed max-w-2xl">Applying user-centric design principles to public-facing digital platforms, focusing on accessibility and speed.</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <button onclick="event.stopPropagation(); openCertificate('3in.png')" class="bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-400 border border-emerald-500/30 px-6 py-3 rounded-xl transition-all font-semibold flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            Verify Credentials
+                        </button>
+                    </div>
+                </div>
+
+                <div class="details-content grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-semibold uppercase text-emerald-400 tracking-wider">The Mission</h3>
+                        <p class="text-neutral-400 text-sm leading-relaxed">Developing intuitive interfaces that allow users to navigate complex web pages with minimal friction, ensuring 100% responsiveness across all modern devices.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-semibold uppercase text-emerald-400 tracking-wider">Key Achievements</h3>
+                        <ul class="space-y-2 text-sm text-neutral-400">
+                            <li>• Designed and deployed responsive layouts for <strong>5+ critical web pages</strong>.</li>
+                            <li>• Achieved a <strong>25% reduction</strong> in user interaction time through UX flow mapping.</li>
+                            <li>• Improved accessibility scores across the board for diverse user groups.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="mt-20 text-center text-neutral-600 text-sm pb-12">
+            <p>© 2026 Developer Portfolio • Focused on Impact</p>
+        </footer>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div id="certModal" class="modal" onclick="closeModal()">
+        <div class="relative max-w-4xl w-full flex flex-col items-center gap-4" onclick="event.stopPropagation()">
+            <!-- Close Button Top -->
+            <button onclick="closeModal()" class="self-end text-neutral-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
+                <span>CLOSE</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            
+            <!-- Image Container -->
+            <div class="bg-neutral-900 p-1.5 rounded-2xl shadow-2xl border border-white/10 overflow-hidden w-full flex items-center justify-center">
+                <img id="certImage" src="" alt="Certificate" 
+                     class="max-w-full max-h-[80vh] object-contain rounded-xl block" 
+                     onerror="this.src='https://via.placeholder.com/1200x800/1a1a1a/ffffff?text=Certificate+Not+Found';">
+            </div>
+
+            <!-- Bottom Floating Close (Better for Mobile) -->
+            <button onclick="closeModal()" class="mt-2 bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-full border border-white/10 backdrop-blur-md transition-all sm:hidden">
+                Tap to Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function toggleExpand(element) {
+            const isExpanded = element.classList.contains('expanded');
+            // Close all other cards first
+            document.querySelectorAll('.glass-card').forEach(card => card.classList.remove('expanded'));
+            // Toggle the current one
+            if (!isExpanded) element.classList.add('expanded');
+        }
+
+        const modal = document.getElementById('certModal');
+        const certImage = document.getElementById('certImage');
+
+        function openCertificate(imgSrc) {
+            certImage.src = imgSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scroll
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
